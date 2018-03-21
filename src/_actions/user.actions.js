@@ -1,4 +1,4 @@
-import { userConstants } from '../_constants';
+import { actionTypes } from './actionTypes';
 import { userService } from '../_services';
 import { alertActions } from './';
 import { history } from '../_helpers';
@@ -26,14 +26,14 @@ function login(username, password) {
             );
     };
 
-    function request(user) { return { type: userConstants.LOGIN_REQUEST, user } }
-    function success(user) { return { type: userConstants.LOGIN_SUCCESS, user } }
-    function failure(error) { return { type: userConstants.LOGIN_FAILURE, error } }
+    function request(user) { return { type: actionTypes.LOGIN_REQUEST, user } }
+    function success(user) { return { type: actionTypes.LOGIN_SUCCESS, user } }
+    function failure(error) { return { type: actionTypes.LOGIN_FAILURE, error } }
 }
 
 function logout() {
     userService.logout();
-    return { type: userConstants.LOGOUT };
+    return { type: actionTypes.LOGOUT };
 }
 
 // function getAll() {
@@ -47,7 +47,7 @@ function logout() {
 //             );
 //     };
 
-//     function request() { return { type: userConstants.GETALL_REQUEST } }
-//     function success(users) { return { type: userConstants.GETALL_SUCCESS, users } }
-//     function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
+//     function request() { return { type: actionTypes.GETALL_REQUEST } }
+//     function success(users) { return { type: actionTypes.GETALL_SUCCESS, users } }
+//     function failure(error) { return { type: actionTypes.GETALL_FAILURE, error } }
 // }
